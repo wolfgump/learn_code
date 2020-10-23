@@ -13,7 +13,6 @@ public class RestApiService {
             = MediaType.get("application/json; charset=utf-8");
 
     public static void main(String[] args) {
-
         OkHttpClient okHttpClient = new OkHttpClient();
         RequestBody body = RequestBody.create(JSON,"{\n" +
                 "  \"query\": {\n" +
