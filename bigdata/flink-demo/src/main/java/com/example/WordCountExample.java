@@ -24,6 +24,7 @@ public class WordCountExample {
                 .sum(1);
 
         wordCounts.print();
+        wordCounts.collect();
     }
 
     public static class LineSplitter implements FlatMapFunction<String, Tuple2<String, Integer>> {
