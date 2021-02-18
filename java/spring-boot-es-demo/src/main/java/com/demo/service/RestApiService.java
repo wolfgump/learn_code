@@ -25,6 +25,7 @@ public class RestApiService {
                 .url("http://127.0.0.1:9200/item/_search")
                 .post(body)
                 .build();
+        //不推荐使用okHttpClient,因为其连接的是单节点而不是es集群。优先使用High level rest client,次使用Low level rest client
         try (Response response = okHttpClient.newCall(request).execute()) {
             System.out.println(response.body().string());
         } catch (IOException e) {
