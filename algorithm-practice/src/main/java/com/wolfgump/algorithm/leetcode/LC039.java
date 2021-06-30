@@ -1,11 +1,11 @@
-package com.wolfgump.algorithm.leetcode.backtracing;
+package com.wolfgump.algorithm.leetcode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 /**
- *  leetcode 39
+ *
  *  Given a set of candidate numbers (candidates) (without duplicates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target.
  *
  * The same repeated number may be chosen from candidates unlimited number of times.
@@ -32,7 +32,7 @@ import java.util.List;
  *   [3,5]
  * ]
  */
-public class CombinationSum {
+public class LC039 {
 	//最简单的办法，暴力法
 	public static List<List<Integer>> combinationSumForce(int[] candidates, int target) {
 		List<List<Integer>> results = new ArrayList<>();
