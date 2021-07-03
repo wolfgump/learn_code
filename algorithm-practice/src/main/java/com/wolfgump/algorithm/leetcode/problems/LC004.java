@@ -1,4 +1,4 @@
-package com.wolfgump.algorithm.leetcode;
+package com.wolfgump.algorithm.leetcode.problems;
 
 /**
  * @author: gan

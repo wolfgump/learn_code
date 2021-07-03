@@ -1,4 +1,4 @@
-package com.wolfgump.algorithm.leetcode;
+package com.wolfgump.algorithm.leetcode.problems;
 
 
 import java.util.HashMap;
