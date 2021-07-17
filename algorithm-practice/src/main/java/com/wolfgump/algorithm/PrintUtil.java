@@ -13,4 +13,16 @@ public class PrintUtil {
         }
         System.out.println("");
     }
+    public static void printIntArray(int[][] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            for(int j=0;j< nums.length;j++){
+                System.out.print(nums[i][j]);
+                if(j!= nums[i].length-1){
+                    System.out.print(",");
+                }
+            }
+            System.out.println("");
+        }
+        System.out.println("");
+    }
 }
