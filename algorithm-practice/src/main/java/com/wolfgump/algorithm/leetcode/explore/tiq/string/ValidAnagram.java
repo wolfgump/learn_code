@@ -26,7 +26,7 @@ package com.wolfgump.algorithm.leetcode.explore.tiq.string;
  * Follow up: What if the inputs contain Unicode characters? How would you adapt your solution to such a case?
  **/
 public class ValidAnagram {
-    public boolean isAnagram(String s, String t) {
+    public static boolean isAnagram(String s, String t) {
         int[] countChar = new int[26];
         for (int i = 0; i < s.length(); i++) {
             countChar[s.charAt(i) - 'a']++;
@@ -40,5 +40,11 @@ public class ValidAnagram {
             }
         }
         return true;
+    }
+
+    public static void main(String[] args) {
+        boolean result = isAnagram("anagram", "nagaram");
+        assert result;
+        System.out.println(result);
     }
 }
