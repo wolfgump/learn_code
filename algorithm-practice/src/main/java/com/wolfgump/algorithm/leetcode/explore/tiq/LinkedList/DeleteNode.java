@@ -46,6 +46,7 @@ import java.util.LinkedList;
  **/
 public class DeleteNode {
     public void deleteNode(ListNode node) {
+        //实质上删掉的是node.next，只不过是把node.next的值赋予给了node,相当于删除了node
         if (node != null && node.next != null) {
             node.val = node.next.val;
             node.next = node.next.next;
