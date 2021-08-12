@@ -36,14 +36,33 @@ public class ReverseList {
         ListNode startNode = new ListNode(0, head);
         ListNode preNode = startNode;
         while (head != null) {
-            ListNode temp=  head.next;
+            ListNode temp = head.next;
             head.next = preNode;
             preNode = head;
-            head =temp;
+            head = temp;
         }
         startNode.next.next = null;
         return preNode;
 
+    }
+
+    public static ListNode reverseList1(ListNode head) {
+        ListNode startNode = new ListNode(0, head);
+        ListNode preNode = startNode;
+        preNode= recursiveReverse(head,preNode);
+        startNode.next.next = null;
+        return preNode;
+    }
+
+    private static ListNode recursiveReverse(ListNode head, ListNode preNode) {
+        if (head == null) {
+            return preNode;
+        }
+        ListNode temp = head.next;
+        head.next = preNode;
+        preNode = head;
+        head = temp;
+       return recursiveReverse(head, preNode);
     }
 
     private static class ListNode {
@@ -70,7 +89,7 @@ public class ReverseList {
         ListNode node2 = new ListNode(2, node3);
         ListNode node1 = new ListNode(1, node2);
         print(node1);
-        ListNode newHead=reverseList(node1);
+        ListNode newHead = reverseList1(node1);
         print(newHead);
     }
 
