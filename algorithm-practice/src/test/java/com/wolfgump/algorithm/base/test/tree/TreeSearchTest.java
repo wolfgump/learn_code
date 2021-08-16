@@ -2,7 +2,7 @@ package com.wolfgump.algorithm.base.test.tree;
 
 import com.wolfgump.algorithm.AlgorithmApplicationTests;
 import com.wolfgump.algorithm.base.tree.Tree;
-import com.wolfgump.algorithm.base.tree.TreeSearch;
+import com.wolfgump.algorithm.base.tree.TreePrint;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class TreeSearchTest extends AlgorithmApplicationTests {
 
     @Autowired
-    TreeSearch treeSearch;
+    TreePrint treePrint;
 
 
     public Tree init() {
@@ -30,16 +30,16 @@ public class TreeSearchTest extends AlgorithmApplicationTests {
     @Test
     public void testPreSearch() {
         Tree tree = init();
-        treeSearch.printPreSearch(tree);
+        treePrint.printPre(tree);
     }
     @Test
     public void testInSearch() {
         Tree tree = init();
-        treeSearch.printInSearch(tree);
+        treePrint.printIn(tree);
     }
     @Test
     public void testPostSearch() {
         Tree tree = init();
-        treeSearch.printPostSearch(tree);
+        treePrint.printPost(tree);
     }
 }
