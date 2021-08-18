@@ -2,7 +2,7 @@ package com.wolfgump.algorithm.struct.search;
 
 public class BSearch {
 	/**
-	 * 二分查找
+	 * 二分查找 不重复
 	 * @param a
 	 * @param value
 	 * @return
