@@ -30,6 +30,7 @@ package com.wolfgump.algorithm.leetcode.explore.tiq.dynamic;
  * 1 <= n <= 45
  **/
 public class ClimbStars {
+    //回溯思想 从上而下
     public static int climbStairsRecursive(int n) {
         if (n == 0) {
             return 0;
@@ -43,6 +44,7 @@ public class ClimbStars {
         return climbStairsRecursive(n - 1) + climbStairsRecursive(n - 2);
     }
 
+    //动态规划思想 从下而上
     public static int climStair(int n) {
         if (n == 0) {
             return 0;
@@ -66,7 +68,7 @@ public class ClimbStars {
 
     public static void main(String[] args) {
 //        int result = climbStairsRecursive(100);
-        int result1=climStair(45);
+        int result1 = climStair(45);
         System.out.println(result1);
     }
 }
