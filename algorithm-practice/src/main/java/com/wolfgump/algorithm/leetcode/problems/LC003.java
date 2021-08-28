@@ -3,6 +3,7 @@ package com.wolfgump.algorithm.leetcode.problems;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 /**
  * @author: gan
@@ -82,13 +83,37 @@ public class LC003 {
                 i = Math.max(i, map.get(s.charAt(j)) + 1);
             }
             map.put(s.charAt(j), j);
-            max = Math.max(max, j-i+1);
+            max = Math.max(max, j - i + 1);
         }
         return max;
     }
 
+    /**
+     * 滑动窗口
+     *
+     * @param s
+     * @return
+     */
+    public static int lengthOfLongestSubString4(String s) {
+        Map<Character, Integer> window = new HashMap<>();
+        int right = 0, left = 0;
+        int res = 0;
+        while (right < s.length()) {
+            char c = s.toCharArray()[right];
+            right++;
+            window.put(c, window.getOrDefault(c, 0) + 1);
+            while (window.get(c) > 1) {
+                char d = s.toCharArray()[left];
+                window.put(d, window.get(d) - 1);
+                left++;
+            }
+            res = Math.max(res, right - left);
+        }
+        return res;
+    }
+
     public static void main(String[] args) {
-        int result = lengthOfLongestSubString3("abcabcbb");
+        int result = lengthOfLongestSubString4("abcabcbb");
         System.out.println(result);
     }
 }
