@@ -30,7 +30,7 @@ package com.wolfgump.algorithm.leetcode.problems;
  * 0 <= Node.val <= 100
  * 1 <= n <= sz
  **/
-public class LC19 {
+public class LC019 {
     public static ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode slow = head, fast = head;
         int count = 1;

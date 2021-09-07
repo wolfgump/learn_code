@@ -96,7 +96,7 @@ public class Sorts {
 	/**
 	 * 最简单的做法 申请两个临时数组，小于的pivot的值放到一个数组 大于pivot的放到一个数组；但是这样空间复杂度增大，类似了归并排序
 	 * 只在原数组a上通过交换操作完成
-	 * 定义两个变量 i,j；j一直往后++，a[j]小于pivot,a[j]和a[i]交换 ；i++
+	 * 定义两个变量 i,j；j一直往后++，a[j]小于pivot,a[j]和a[i]交换 ；i++； i一直指向大于或等于pivot的位置，遇到比pivot小的值就和i位置的值进行交换
 	 * @param a
 	 * @param low
 	 * @param high
