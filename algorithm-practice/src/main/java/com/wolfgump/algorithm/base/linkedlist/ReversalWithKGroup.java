@@ -12,6 +12,16 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class ReversalWithKGroup {
+    public ListNode reverseAll(ListNode head) {
+        if (head == null) {
+            return head;
+        }
+        ListNode newHead = reverseAll(head.next);
+        newHead.next.next = head;
+        head.next = null;
+        return newHead;
+    }
+
     /**
      * 给定这个链表：1->2->3->4->5
      * <p>
@@ -19,42 +29,60 @@ public class ReversalWithKGroup {
      * <p>
      * 当 k=3 时，应当返回：3->2->1->4->5
      */
-
-
     public ListNode reverseKGroup(ListNode head, int k) {
-        if (k == 1 || head == null) {
-            return head;
+        ListNode b = null;
+        for (int i = 0; i < k; i++) {
+            if (b == null) {
+                //不翻转
+                return head;
+            }
+            b = head.next;
         }
-        ListNode pre = null;
-        ListNode current = head;
-        ListNode next;
-        int n = k;
-        while (current != null && n-- > 0) {
-            next = current.next;
-            current.next = pre;
-            pre = current;
-            current = next;
-        }
-        ListNode newHead = reverseKGroup(current, k);
-        head.next = newHead;
-        return pre;
-    }
-    public ListNode reverseAll(ListNode head) {
-        if ( head == null) {
-            return head;
-        }
-        ListNode pre = null;
-        ListNode current = head;
-        ListNode next;
-        while (current != null) {
-            next = current.next;
-            current.next = pre;
-            pre = current;
-            current = next;
-        }
+        ListNode cur = reverse(head, b);
+        cur.next = reverseKGroup(cur, k);
+        return null;
 
-        return pre;
     }
+
+    private ListNode reverse(ListNode a, ListNode b) {
+        if (a == null) {
+            return null;
+        }
+        ListNode cur = a, next = a, pre = null;
+        while (cur != b) {
+            pre = cur;
+            cur = next;
+            next = cur.next;
+            cur.next = pre;
+        }
+        return cur;
+    }
+
+    ListNode successor = null;
+
+    public ListNode reverseN(ListNode head, int n) {
+        if (head == null) {
+            return null;
+        }
+        if (n == 1) {
+            successor = head.next;
+            return head;
+        }
+        ListNode newHead = reverseN(head.next, n - 1);
+        newHead.next.next = head;
+        //与reverseAll不同，head.next要和剩余的链表连起来
+        head.next = successor;
+        return newHead;
+    }
+
+    public ListNode reverseMn(ListNode head, int m, int n) {
+        if (m == 1) {
+            return reverseN(head, n);
+        }
+        head.next = reverseMn(head, m - 1, n - 1);
+        return head;
+    }
+
 
     public void print(ListNode head) {
         while (head != null) {

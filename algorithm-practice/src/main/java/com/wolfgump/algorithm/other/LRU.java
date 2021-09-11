@@ -1,18 +1,18 @@
-package com.wolfgump.algorithm.leetcode.problems;
+package com.wolfgump.algorithm.other;
 
 import java.util.HashMap;
 
 /**
- * LRU Leatest Recent Use
+ * LRU Latest Recently Use
  * @author ShiTao.Gan
  **/
-public class LC146 {
+public class LRU {
     HashMap<Integer, ListNode> map;
     DoubleList doubleList;
     // 最大容量
     private int cap;
 
-    public LC146(int capacity) {
+    public LRU(int capacity) {
         this.cap = capacity;
         map = new HashMap<>(capacity);
         doubleList = new DoubleList();
